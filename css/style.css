@@ -26,7 +26,7 @@ top: 50%;
 left: 50%;
 transform: translate( -50%, -50%);
 width: 520px;
-height: 800px;
+height: 85vh;
 background: radial-gradient(ellipse farthest-corner at center top, #535E80 0%,#3F4A6B 100%);
 border-radius: 30px;
 box-shadow: 0 7px 30px rgba(26, 26, 26, 0.3);
@@ -93,7 +93,7 @@ color: #87C2F8;
     margin-top: 20px;
     margin-left: 35px;
     width: 450px;
-    height:460px;
+    height:340px;
     overflow-x: scroll;
     overflow-y: auto;
 }
@@ -120,6 +120,7 @@ color: #87C2F8;
 }
 .todo li{
     flex: 1;
+    word-break: break-all;
 }
 .trash-btn, .complete-btn{
 background: transparent;
@@ -156,14 +157,16 @@ select{
     -moz-appearance: none; */
     border: none;
     outline: none;
-    position: relative;
 }
 .select{
+    position: absolute;
     margin-left: 300px;
     padding-bottom: 10px;
-    padding-top: 2px;
-
-
+    padding-top: 20px;
+    bottom: 0;
+    right: 0;
+    padding-right: 30px;
+    
 
 }
 
