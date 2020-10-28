@@ -5,9 +5,10 @@ const todoList = document.querySelector('.todo-list')
 const filterOption = document.querySelector('.filter-todo')
 
 //Event listeners
+document.addEventListener('DOMContentLoaded', getTodos); 
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteCheck);
-filterOption.addEventListener("change", filterTodo);
+filterOption.addEventListener('change', filterTodo);
  
   
 
@@ -22,6 +23,8 @@ const newTodo = document.createElement('li');
 newTodo.innerText = todoInput.value;
 newTodo.classList.add("todo-item");
 todoDiv.appendChild(newTodo);
+//save to local storage
+saveLocalTodos(todoInput.value);
 //check mark button
 const completedButton = document.createElement('button');
 completedButton.innerHTML = '<i class="fas fa-check"></i>';
@@ -46,6 +49,7 @@ function deleteCheck(e){
         const todo = item.parentElement;
         //animation
         todo.classList.add("fall");
+        removeLocalTodos(todo);
         todo.addEventListener('transitionend', function(){
             todo.remove();
         })
