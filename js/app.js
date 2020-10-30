@@ -3,33 +3,40 @@ const todoInput = document.querySelector('.todo-input')
 const todoButton = document.querySelector('.todo-button')
 const todoList = document.querySelector('.todo-list')
 const filterOption = document.querySelector('.filter-todo')
+const getAim = document.querySelector('.a')
 
 //Event listeners
 document.addEventListener('DOMContentLoaded', getTodos); 
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteCheck);
 filterOption.addEventListener('change', filterTodo);
- 
-  
+getAim.addEventListener('click', aimTodo);
 
-//functions
+
+
+
+
+//functions 
 function addTodo(event){
     event.preventDefault();
 //todo div
 const todoDiv = document.createElement("div");
 todoDiv.classList.add("todo");
-//create li
-const newTodo = document.createElement('li');
-newTodo.innerText = todoInput.value;
-newTodo.classList.add("todo-item");
-todoDiv.appendChild(newTodo);
-//save to local storage
-saveLocalTodos(todoInput.value);
 //check mark button
 const completedButton = document.createElement('button');
 completedButton.innerHTML = '<i class="fas fa-check"></i>';
 completedButton.classList.add("complete-btn");
 todoDiv.appendChild(completedButton);
+
+//create li
+const newTodo = document.createElement('li');
+newTodo.innerText = todoInput.value;
+newTodo.classList.add("todo-item");
+todoDiv.appendChild(newTodo);
+
+//save to local storage
+saveLocalTodos(todoInput.value);
+
 //check trash button
 const trashButton = document.createElement('button');
 trashButton.innerHTML = '<i class="fas fa-trash"></i>';
@@ -38,9 +45,15 @@ todoDiv.appendChild(trashButton);
 //append to list
 todoList.appendChild(todoDiv);
 
+
 // clear input value
 todoInput.value = "";
+   
+
+
 }
+
+
 
 function deleteCheck(e){
     const item = e.target;
@@ -59,8 +72,50 @@ function deleteCheck(e){
 if (item.classList[0] === "complete-btn"){
     const todo = item.parentElement;
     todo.classList.toggle("completed");
+} 
+//AIM todo
+
+    const inImgs = document.getElementsByClassName('img-1');
+    const count = document.getElementsByClassName("completed").length;
+    out_arr.innerHTML = (count + " completed");
+
+    if (count >= 2){
+    inImgs[5].style.cssText = 'opacity: 90%; color:white; text-align: center;';
+} else if (count <= 2){
+    inImgs[5].style.cssText = 'opacity: 10%; color:transperent;';  
 }
+if (count >= 5){
+    inImgs[4].style.cssText = 'opacity: 90%; color:white; text-align: center;';
+} else if (count <= 5){
+    inImgs[4].style.cssText = 'opacity: 10%; color:transperent; ';  
+
+} 
+if (count >= 10){
+    inImgs[3].style.cssText = 'opacity: 90%; color:white; text-align: center;';
+} else if (count <= 10){
+    inImgs[3].style.cssText = 'opacity: 10%; color:transperent; ';  
+} 
+if (count >= 15){
+    inImgs[2].style.cssText = 'opacity: 90%; color:white; text-align: center;';
+} else if (count <= 15){
+    inImgs[2].style.cssText = 'opacity: 10%; color:transperent; ';  
+
+} 
+if (count >= 20){
+    inImgs[1].style.cssText = 'opacity: 90%; color:white; text-align: center;';
+} else if (count <= 20){
+    inImgs[1].style.cssText = 'opacity: 10%; color:transperent; ';  
+
+} 
+if (count >= 25){
+    inImgs[0].style.cssText = 'opacity: 90%; color:white; text-align: center;';
+} else if (count <= 25){
+    inImgs[0].style.cssText = 'opacity: 10%; color:transperent; ';  
+
+} 
 }
+
+
 
 //filter
 function filterTodo(e) {
@@ -86,6 +141,7 @@ function filterTodo(e) {
         } break; 
     }
     });
+
 }
 
 //local storage
@@ -112,17 +168,18 @@ function getTodos (){
 //todo div
 const todoDiv = document.createElement("div");
 todoDiv.classList.add("todo");
+//check mark button
+const completedButton = document.createElement('button');
+completedButton.innerHTML = '<i class="fas fa-check"></i>';
+completedButton.classList.add("complete-btn");
+todoDiv.appendChild(completedButton);
 //create li
 const newTodo = document.createElement('li');
 newTodo.innerText = todo;
 newTodo.classList.add("todo-item");
 todoDiv.appendChild(newTodo);
  
-//check mark button
-const completedButton = document.createElement('button');
-completedButton.innerHTML = '<i class="fas fa-check"></i>';
-completedButton.classList.add("complete-btn");
-todoDiv.appendChild(completedButton);
+
 //check trash button
 const trashButton = document.createElement('button');
 trashButton.innerHTML = '<i class="fas fa-trash"></i>';
@@ -143,3 +200,17 @@ function removeLocalTodos(todo){
     todos.splice(todos.indexOf(todoIndex), 1);
     localStorage.setItem("todos", JSON.stringify(todos));
 }
+
+
+
+
+
+
+      
+
+
+
+// if (item.classList[0] === "complete-btn"){
+//     const todo = item.parentElement;
+//     todo.classList.toggle("completed");
+// }
