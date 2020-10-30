@@ -73,9 +73,9 @@ form .todo-input {
     border-radius: 10px;
 
       } 
-/* form {
-    margin-top: 400px;
-}    */
+h3{
+    padding-bottom: 20px;
+}
  .todo-button{
     font-size: 20px;
     margin-left: 15px;
