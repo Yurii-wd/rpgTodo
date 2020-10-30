@@ -17,26 +17,27 @@ header, form{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 20px;
 }
 /* h1{
     color: #676BF6;
 } */
 .form-background{
 position: absolute;
-top: 50%;
+top: 48%;
 left: 50%;
 transform: translate( -50%, -50%);
 width: 520px;
-height: 85vh;
+/* height: 85vh; */
 /* background: radial-gradient(ellipse farthest-corner at center top, #3B4766  0% #3D4764 100%); */
-border-radius: 30px;
+border-radius: 25px;
 background: #3E3E6A;
 box-shadow: 0 7px 30px rgba(26, 26, 26, 0.3);
 }
 
 .cover-image{
     /* background: radial-gradient(ellipse farthest-corner at center top, #676BF6 0%,#879AF8 100%); */
-    height: 180px;
+    height: 140px;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
    position: relative;
@@ -96,7 +97,7 @@ padding: 8px;
     margin-top: 20px;
     margin-left: 35px;
     width: 450px;
-    height:340px;
+    height:345px;
     overflow-x: scroll;
     overflow-y: auto;
 }
@@ -224,7 +225,7 @@ select:hover {
   
  footer{
     position: absolute;
-    top: 96%;
+    top: 95%;
     left: 50%;
     transform: translate( -50%, -50%);
     color: #3E3E6A;
@@ -293,4 +294,3 @@ input::placeholder {
     font-size: 20px;
    }
 
-  
